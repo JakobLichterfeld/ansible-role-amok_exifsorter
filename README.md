@@ -1,4 +1,4 @@
-# Ansible Role: LaTeX TeX Live
+# Ansible Role: Amok Exifsorter
 
 Install Amok Exifsorter via download.
 
