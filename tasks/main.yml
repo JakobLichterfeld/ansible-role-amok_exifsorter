@@ -1,0 +1,48 @@
+---
+# tasks file for amok_exifsorter
+- name: Install Block
+  block:
+    - name: Create Amok-Exifsorter download dir on remote host if it does not exist
+      ansible.builtin.file:
+        path: "{{ download_dir_on_remote_host }}/amok_exifsorter"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: Download installer
+      become: true
+      become_user: "{{ ansible_user }}"
+      ansible.builtin.get_url:
+        url: "https://www.amok.am/files/releases/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
+        dest: "{{ download_dir_on_remote_host }}/amok_exifsorter/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
+        checksum: "{{ amok_exifsorter.checksum }}"
+      register: amok_exifsorter_installer
+
+    - name: Clean destination folder if needed
+      ansible.builtin.file:
+        path: "/opt/amok_exifsorter"
+        state: absent
+      when: amok_exifsorter_installer.changed
+
+    - name: Create destination folder if needed
+      ansible.builtin.file:
+        path: "/opt/amok_exifsorter"
+        state: directory
+        owner: "root"
+        group: "root"
+        mode: '0755'
+      when: amok_exifsorter_installer.changed
+
+    - name: Install in dir
+      ansible.builtin.unarchive:
+        src: "{{ download_dir_on_remote_host }}/amok_exifsorter/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
+        dest: "/opt/amok_exifsorter"
+      when: amok_exifsorter_installer.changed
+
+    - name: Menu-Entry for all users
+      ansible.builtin.template:
+        src: "amok_exifsorter.desktop.j2"
+        dest: "/usr/share/applications/amok_exifsorter.desktop"
+        owner: "root"
+        group: "root"
+        mode: '0644'
