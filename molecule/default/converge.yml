@@ -5,6 +5,10 @@
   become: true
 
   tasks:
+    - name: Populate instance config dict
+      ansible.builtin.set_fact:
+        ansible_user: "ubuntu"
+
     - name: Testing role
       ansible.builtin.include_role:
         name: jakoblichterfeld.amok_exifsorter
