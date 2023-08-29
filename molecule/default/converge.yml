@@ -7,4 +7,4 @@
   tasks:
     - name: Testing role
       ansible.builtin.include_role:
-        name: "${{ GITHUB_REPOSITORY }}"
+        name: $GITHUB_REPOSITORY
