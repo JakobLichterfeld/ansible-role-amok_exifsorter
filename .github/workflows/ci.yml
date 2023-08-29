@@ -11,10 +11,6 @@ on:
   workflow_dispatch:
   workflow_call:
 
-defaults:
-  run:
-    working-directory: "$GITHUB_REPOSITORY"
-
 jobs:
   lint:
     name: Lint
@@ -24,8 +20,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          path: "$GITHUB_REPOSITORY"
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
@@ -44,8 +38,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          path: "$GITHUB_REPOSITORY"
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
