@@ -1,25 +1,25 @@
 ---
 galaxy_info:
-  role_name: amok_exifsorter
-  version: 1.0.0
-  author: JakobLichterfeld
-  description: Install Amok Exifsorter via download
+    role_name: amok_exifsorter
+    version: 1.0.0
+    author: JakobLichterfeld
+    description: Install Amok Exifsorter via download
 
-  homepage: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter
-  issue_tracker_url: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/issues
+    homepage: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter
+    issue_tracker_url: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/issues
 
-  license: MIT
-  min_ansible_version: 2.1
+    license: MIT
+    min_ansible_version: 2.1
 
-  platforms:
-  - name: Ubuntu
-    versions:
-      - jammy
+    platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
 
-  galaxy_tags:
-    - amok-exifsorter
-    - exifsorter
-    - exif
-    - picture
+    galaxy_tags:
+      - amok-exifsorter
+      - exifsorter
+      - exif
+      - picture
 
 dependencies: []
