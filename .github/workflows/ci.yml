@@ -11,10 +11,6 @@ on:
   workflow_dispatch:
   workflow_call:
 
-defaults:
-  run:
-    working-directory: $GITHUB_REPOSITORY
-
 jobs:
   lint:
     name: Lint
