@@ -1,6 +1,7 @@
 # Ansible Role: Amok Exifsorter
 
 [![CI](https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/actions?query=workflow%3ACI)
+![Released to Galaxy](https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/actions/workflows/release_to_ansible_galaxy.yml/badge.svg?branch=main)
 
 Install Amok Exifsorter via download.
 
