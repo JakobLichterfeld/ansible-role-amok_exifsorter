@@ -4,11 +4,12 @@
   gather_facts: true
   become: true
 
-  tasks:
-    - name: Populate instance config dict
+  pre_tasks:
+    - name: Populate ansible user name
       ansible.builtin.set_fact:
-        ansible_user: "ansible"
+        ansible_user: "root"
 
+  tasks:
     - name: Testing role
       ansible.builtin.include_role:
         name: jakoblichterfeld.amok_exifsorter
