@@ -16,6 +16,7 @@
         url: "https://www.amok.am/files/releases/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
         dest: "{{ download_dir_on_remote_host }}/amok_exifsorter/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
         checksum: "{{ amok_exifsorter.checksum }}"
+        timeout: 60
       register: amok_exifsorter_installer
 
     - name: Clean destination folder if needed
