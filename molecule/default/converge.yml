@@ -7,7 +7,7 @@
   tasks:
     - name: Populate instance config dict
       ansible.builtin.set_fact:
-        ansible_user: "ubuntu"
+        ansible_user: "ansible"
 
     - name: Testing role
       ansible.builtin.include_role:
