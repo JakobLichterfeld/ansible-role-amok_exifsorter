@@ -37,6 +37,7 @@
       ansible.builtin.unarchive:
         src: "{{ download_dir_on_remote_host }}/amok_exifsorter/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
         dest: "/opt/amok_exifsorter"
+        remote_src: true
       when: amok_exifsorter_installer.changed
 
     - name: Menu-Entry for all users
