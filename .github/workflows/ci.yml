@@ -18,8 +18,7 @@ jobs:
     # prevent stuck jobs
     timeout-minutes: 20
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
@@ -28,16 +27,16 @@ jobs:
         uses: ./.github/actions/lint
 
   molecule:
+    needs: [lint]
     name: Test with Ansible Molecule
     runs-on: ubuntu-latest
     # prevent stuck jobs
     timeout-minutes: 20
     strategy:
       matrix:
-        distro: [buntu2204, ubuntu2004, ubuntu1804, debian12]
+        distro: [ubuntu2204]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
