@@ -14,12 +14,12 @@ galaxy_info:
     platforms:
         - name: Ubuntu
           versions:
-            - jammy
+              - jammy
 
     galaxy_tags:
-      - amok-exifsorter
-      - exifsorter
-      - exif
-      - picture
+        - amok-exifsorter
+        - exifsorter
+        - exif
+        - picture
 
 dependencies: []
