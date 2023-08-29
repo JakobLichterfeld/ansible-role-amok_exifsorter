@@ -1,6 +1,7 @@
 ---
 galaxy_info:
     role_name: amok_exifsorter
+    namespace: jakoblichterfeld
     version: 1.0.0
     author: JakobLichterfeld
     description: Install Amok Exifsorter via download
