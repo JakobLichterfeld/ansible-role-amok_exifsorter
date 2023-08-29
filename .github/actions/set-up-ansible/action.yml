@@ -7,4 +7,5 @@ runs:
     - uses: actions/checkout@v3
 
     - name: Set up Ansible
+      shell: bash
       run: pip3 install ansible-core
