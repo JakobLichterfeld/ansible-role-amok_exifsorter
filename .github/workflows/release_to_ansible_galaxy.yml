@@ -17,10 +17,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: /.github/actions/set-up-python
+        uses: ./.github/actions/set-up-python/
 
       - name: Set up Ansible
-        uses: /.github/actions/set-up-ansible
+        uses: ./.github/actions/set-up-ansible/
 
       - name: Publish role with import to Galaxy
         run: >-
