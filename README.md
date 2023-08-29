@@ -1,5 +1,7 @@
 # Ansible Role: Amok Exifsorter
 
+[![CI](https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/actions?query=workflow%3ACI)
+
 Install Amok Exifsorter via download.
 
 - Download and verify (md5) the specified Amok Exifsorter
