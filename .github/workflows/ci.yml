@@ -1,0 +1,64 @@
+---
+name: CI
+on:
+  push:
+    branches: ["main", "releases/**"]
+    #tags: ["v*", "v**", "v.*", "v.**" ]
+  pull_request:
+    branches: ["main", "releases/**"]
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  workflow_call:
+
+defaults:
+  run:
+    working-directory: "${{ github.event.repository.name }}"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    # prevent stuck jobs
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: "${{ github.event.repository.name }}"
+
+      - name: Set up Python
+        uses: ./.github/actions/set-up-python
+
+      - name: Lint
+        uses: ./.github/actions/lint
+
+  molecule:
+    name: Test with Ansible Molecule
+    runs-on: ubuntu-latest
+    # prevent stuck jobs
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        distro: [buntu2204, ubuntu2004, ubuntu1804, debian12]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: "${{ github.event.repository.name }}"
+
+      - name: Set up Python
+        uses: ./.github/actions/set-up-python
+
+      - name: Set up Ansible
+        uses: ./.github/actions/set-up-ansible
+
+      - name: Set up Molecule
+        uses: ./.github/actions/set-up-molecule
+
+      - name: Run Molecule tests
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}

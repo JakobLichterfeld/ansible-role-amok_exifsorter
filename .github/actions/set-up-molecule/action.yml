@@ -1,0 +1,10 @@
+---
+name: 'Set up Molecule'
+description: 'Set up Molecule'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Molecule
+      run: pip3 install molecule molecule-plugins[docker] docker
