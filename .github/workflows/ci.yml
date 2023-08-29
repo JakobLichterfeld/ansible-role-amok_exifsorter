@@ -26,10 +26,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: JakobLichterfeld/ansible-role-amok_exifsorter/.github/actions/set-up-python/
+        uses: ./.github/actions/set-up-python/
 
       - name: Lint
-        uses: JakobLichterfeld/ansible-role-amok_exifsorter/.github/actions/lint/
+        uses: ./.github/actions/lint/
 
   molecule:
     name: Test with Ansible Molecule
@@ -44,13 +44,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: JakobLichterfeld/ansible-role-amok_exifsorter/.github/actions/set-up-python/
+        uses: ./.github/actions/set-up-python/
 
       - name: Set up Ansible
-        uses: JakobLichterfeld/ansible-role-amok_exifsorter/.github/actions/set-up-ansible/
+        uses: ./.github/actions/set-up-ansible/
 
       - name: Set up Molecule
-        uses: JakobLichterfeld/ansible-role-amok_exifsorter/.github/actions/set-up-molecule/
+        uses: ./.github/actions/set-up-molecule/
 
       - name: Run Molecule tests
         run: molecule test
