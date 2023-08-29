@@ -13,7 +13,7 @@ on:
 
 defaults:
   run:
-    working-directory: "${{ github.event.repository.name }}"
+    working-directory: "${{ GITHUB_REPOSITORY }}"
 
 jobs:
   lint:
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          path: "${{ github.event.repository.name }}"
+          path: "${{ GITHUB_REPOSITORY }}"
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
@@ -45,7 +45,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          path: "${{ github.event.repository.name }}"
+          path: "${{ GITHUB_REPOSITORY }}"
 
       - name: Set up Python
         uses: ./.github/actions/set-up-python
