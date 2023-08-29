@@ -20,7 +20,7 @@ jobs:
         uses: ./.github/actions/set-up-python/
 
       - name: Set up Ansible
-        uses: .github/actions/set-up-ansible/
+        uses: $GITHUB_REPOSITORY@molecule/set-up-ansible/
 
       - name: Publish role with import to Galaxy
         run: >-
