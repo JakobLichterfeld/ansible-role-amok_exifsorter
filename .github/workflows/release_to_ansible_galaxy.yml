@@ -6,6 +6,10 @@ on:
   workflow_dispatch:
   workflow_call:
 
+defaults:
+  run:
+    working-directory: "${{ github.repository }}"
+
 jobs:
   release:
     name:  Release role to Ansible Galaxy
