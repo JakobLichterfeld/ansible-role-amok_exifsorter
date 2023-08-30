@@ -32,7 +32,7 @@ None.
 ```yaml
 ---
 - hosts: all
-  gather_facts: yes
+  gather_facts: true
   become: true
 
   roles:
