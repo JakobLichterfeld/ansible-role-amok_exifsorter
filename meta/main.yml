@@ -6,7 +6,7 @@ galaxy_info:
     author: JakobLichterfeld
     description: Install Amok Exifsorter via download
 
-    #homepage: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter
+    # homepage: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter
     issue_tracker_url: https://github.com/JakobLichterfeld/ansible-role-amok_exifsorter/issues
 
     license: MIT
