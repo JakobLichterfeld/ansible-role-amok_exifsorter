@@ -4,7 +4,6 @@
   block:
     - name: Create Amok-Exifsorter download dir on remote host if it does not exist
       become: true
-      become_user: "{{ ansible_user }}"
       ansible.builtin.file:
         path: "{{ download_dir_on_remote_host }}/amok_exifsorter"
         state: directory
@@ -14,7 +13,6 @@
 
     - name: Download installer
       become: true
-      become_user: "{{ ansible_user }}"
       ansible.builtin.get_url:
         url: "https://www.amok.am/files/releases/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
         dest: "{{ download_dir_on_remote_host }}/amok_exifsorter/exifsorter-{{ amok_exifsorter.version }}.tar.bz2"
